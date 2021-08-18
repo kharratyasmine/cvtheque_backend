@@ -23,7 +23,7 @@ public class AnnouncementController {
     }
 
     @PostMapping("post")
-    public Announcement findByPost(@RequestBody Post post) {
+    public  List<Announcement> findByPost(@RequestBody Post post) {
         return announcementService.findOneByPost(post);
     }
 

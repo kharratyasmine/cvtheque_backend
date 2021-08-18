@@ -13,5 +13,5 @@ public interface CandidatureRepository extends JpaRepository<Candidature, Long> 
 
     @Query(value = "SELECT * FROM  candidature c  WHERE c.candidate_id = ?1 and c.deleted = false",
             nativeQuery = true)
-    Candidature findCandidature(Long candidate_id);
+    List<Candidature> findCandidature(Long candidate_id);
 }

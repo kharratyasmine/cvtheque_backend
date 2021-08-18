@@ -10,13 +10,22 @@ public class Candidate_Competence extends Auditable<String>  {
     private long id_candidate_competence;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "candidate_id", nullable = false)
-    @JsonIgnoreProperties(value = {"candidate_competences", "hibernateLazyInitializer"})
+    @JsonIgnoreProperties(allowSetters = true, value = {"candidate_competences", "hibernateLazyInitializer"})
     private Candidate candidate;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_competence", nullable = false)
-    @JsonIgnoreProperties(value = {"candidate_competences", "hibernateLazyInitializer"})
+    @JsonIgnoreProperties(allowSetters = true, value = {"candidate_competences", "hibernateLazyInitializer"})
     private Competence competence;
+    private Long candidatureId;
     private int evaluation;
+
+    public Long getCandidatureId() {
+        return candidatureId;
+    }
+
+    public void setCandidatureId(Long candidatureId) {
+        this.candidatureId = candidatureId;
+    }
 
     public long getId_candidate_competence() {
         return id_candidate_competence;

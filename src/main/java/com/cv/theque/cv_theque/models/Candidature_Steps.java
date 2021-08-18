@@ -13,7 +13,7 @@ public class Candidature_Steps extends Auditable<String> {
     private long id_candidature_steps;
     @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "id", nullable = false)
-    @JsonIgnoreProperties(value = {"candidature_steps", "hibernateLazyInitializer"})
+    @JsonIgnoreProperties(allowSetters = true, value = {"candidature_steps", "hibernateLazyInitializer"})
     private Candidature candidature;
     private String sequence;
     private String step_description;

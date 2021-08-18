@@ -11,5 +11,5 @@ import java.util.List;
 @Repository
 public interface AnnouncementRepository extends JpaRepository<Announcement, Long> {
     List<Announcement> findAllByDeletedIsFalse();
-    Announcement findByPost(Post post);
+    List<Announcement> findByPost(Post post);
 }

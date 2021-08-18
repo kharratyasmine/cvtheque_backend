@@ -34,7 +34,7 @@ public class Candidate extends Auditable<String>  {
     private String diploma_date;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "university_id", nullable = false)
-    @JsonIgnoreProperties(value = {"candidate", "hibernateLazyInitializer"})
+    @JsonIgnoreProperties(allowSetters = true, value = {"candidate", "hibernateLazyInitializer"})
     private University university;
     private int nb_experience;
     private String ex_employers;

@@ -21,7 +21,7 @@ public class AnnouncementService {
         return announcementrepository.findAllByDeletedIsFalse();
     }
 
-    public Announcement findOneByPost(Post post) {
+    public  List<Announcement> findOneByPost(Post post) {
         return announcementrepository.findByPost(post);
     }
 

@@ -12,12 +12,20 @@ public class Advantage extends Auditable<String> {
     private long id_advantage;
     @JsonIgnore
     @OneToMany(mappedBy = "advantage")
-    private List<Candidate_Advantage> Candidate_Advantages;
+    private List<Candidate_Advantage> candidate_Advantages;
     private String advantage_name;
     private String advantage_group;
 
     public long getId_advantage() {
         return id_advantage;
+    }
+
+    public List<Candidate_Advantage> getCandidate_Advantages() {
+        return candidate_Advantages;
+    }
+
+    public void setCandidate_Advantages(List<Candidate_Advantage> candidate_Advantages) {
+        candidate_Advantages = candidate_Advantages;
     }
 
     public void setId_advantage(long id_advantage) {

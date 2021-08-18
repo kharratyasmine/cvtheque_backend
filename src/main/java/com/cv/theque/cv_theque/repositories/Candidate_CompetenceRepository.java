@@ -13,6 +13,7 @@ import java.util.List;
 public interface Candidate_CompetenceRepository extends JpaRepository<Candidate_Competence, Long> {
     List<Candidate_Competence> findAllByDeletedIsFalse();
     @Query(value = "SELECT * FROM candidate_competence c, candidature ca  WHERE ca.id = ?1 and c.candidate_id = ?2 and ca.candidate_id= c.candidate_id" +
+            " and c.candidature_id = ca.id" +
             " and c.deleted = false",
             nativeQuery = true)
     List<Candidate_Competence> findCompetenceByCandidatureId(Long idCandidature, Long idCandidate);

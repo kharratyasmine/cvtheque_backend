@@ -1,6 +1,7 @@
 package com.cv.theque.cv_theque.controllers;
 
 
+import com.cv.theque.cv_theque.models.CV;
 import com.cv.theque.cv_theque.models.Candidate;
 import com.cv.theque.cv_theque.services.CandidateService;
 import org.springframework.web.bind.annotation.*;
@@ -19,8 +20,16 @@ public class CandidateController {
   }
 
   @GetMapping()
-  public List<Candidate> findAllCandidates() {
-       return candidateService.findAllCandidates();
+  public List<Candidate> findAllByDeletedIsFalse() {
+      List<Candidate> candidateList = candidateService.findAllByDeletedIsFalse();
+      candidateList.forEach(candidate -> candidate.setCv(""));
+       return candidateList;
+    }
+  @GetMapping("cv/{id}")
+  public CV findCvByCandidateId(@PathVariable Long id) {
+      CV currentCv = new CV();
+      currentCv.setCv(candidateService.findCvByCandidateId(id));
+       return currentCv;
     }
 
   @GetMapping("/nbrcandidate")

@@ -16,8 +16,12 @@ public class CandidateService {
         this.candidateRepository = candidateRepository;
     }
 
-    public List<Candidate> findAllCandidates() {
-        return candidateRepository.findAllByDeletedIsFalse() ;
+    public List<Candidate> findAllByDeletedIsFalse() {
+        return candidateRepository.findAllWithoutCV() ;
+    }
+
+    public String findCvByCandidateId(long id) {
+        return candidateRepository.findCvByCandidateId(id) ;
     }
     public long countCandidate() {
         return candidateRepository.countCandidate() ;

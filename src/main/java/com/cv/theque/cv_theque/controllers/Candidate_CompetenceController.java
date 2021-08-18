@@ -1,5 +1,6 @@
 package com.cv.theque.cv_theque.controllers;
 
+import com.cv.theque.cv_theque.models.Candidate_Advantage;
 import com.cv.theque.cv_theque.models.Candidate_Competence;
 import com.cv.theque.cv_theque.services.Candidate_CompetenceService;
 import org.springframework.web.bind.annotation.*;
@@ -22,7 +23,9 @@ public class Candidate_CompetenceController {
 
     @GetMapping("{idCandidature}/{idCandidate}")
     public List<Candidate_Competence> findCompetenceByCandidatureId(@PathVariable Long idCandidature, @PathVariable Long idCandidate) {
-        return Candidate_CompetenceService.findCompetenceByCandidatureId(idCandidature, idCandidate);
+        List<Candidate_Competence> candidateCompetences = Candidate_CompetenceService.findCompetenceByCandidatureId(idCandidature, idCandidate);
+        candidateCompetences.forEach(candidate_advantage -> candidate_advantage.getCandidate().setCv(""));
+        return candidateCompetences;
     }
 
     @PostMapping()

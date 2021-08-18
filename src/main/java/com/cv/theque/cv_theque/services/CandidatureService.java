@@ -21,7 +21,7 @@ public class CandidatureService {
     public List<Candidature> findAllCandidatures() {
         return candidatureRepository.findAllByDeletedIsFalse();
     }
-    public Candidature findCandidatureByCandidate(Long candidate) {
+    public List<Candidature> findCandidatureByCandidate(Long candidate) {
         return candidatureRepository.findCandidature(candidate);
     }
 

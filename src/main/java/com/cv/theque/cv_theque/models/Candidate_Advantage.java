@@ -10,13 +10,22 @@ public class Candidate_Advantage extends Auditable<String> {
     private long candidate_advantage_id;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "candidate_id", nullable = false)
-    @JsonIgnoreProperties(value = {"candidate_advantages", "hibernateLazyInitializer"})
+    @JsonIgnoreProperties(allowSetters = true, value = {"candidate_advantages", "hibernateLazyInitializer"})
     private Candidate candidate;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_advantage", nullable = false)
     @JsonIgnoreProperties(value = {"candidate_advantages", "hibernateLazyInitializer"})
     private Advantage advantage;
     private String evaluation;
+    private Long candidatureId;
+
+    public Long getCandidatureId() {
+        return candidatureId;
+    }
+
+    public void setCandidatureId(Long candidatureId) {
+        this.candidatureId = candidatureId;
+    }
 
     public long getCandidate_advantage_id() {
         return candidate_advantage_id;
@@ -39,7 +48,7 @@ public class Candidate_Advantage extends Auditable<String> {
     }
 
     public void setAdvantage(Advantage advantage) {
-        advantage = advantage;
+        this.advantage = advantage;
     }
 
     public void setCandidate_advantage_id(long candidate_advantage_id) {
