@@ -17,4 +17,9 @@ public interface PostRepository extends JpaRepository<Post, Long> {
             "and c.id_announcement = a.id_announcement and p.id_post = a.post_id and p.deleted = false",
             nativeQuery = true)
     Post findPostByCandidatureId(Long idCandidature, Long idCandidate);
+    @Query(value = "SELECT*,(SELECT COUNT(*) FROM candidature c, announcement a WHERE c.id_announcement = a.id_announcement" +
+            " and p.id_post = a.post_id and c.deleted = false) as total FROM post p;",
+            nativeQuery = true)
+    List<Object> findcandidaturebypost();
+
 }

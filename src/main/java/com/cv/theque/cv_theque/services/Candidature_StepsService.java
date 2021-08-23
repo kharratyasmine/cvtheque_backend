@@ -15,15 +15,24 @@ public class Candidature_StepsService {
     public Candidature_StepsService(Candidature_StepsRepository Candidature_StepsRepository) {
         this.Candidature_StepsRepository = Candidature_StepsRepository;
     }
-    public long countCandidature() {
-        return Candidature_StepsRepository.countCandidature();
+    public long countCandidaturebyrh() {
+        return Candidature_StepsRepository.countCandidaturebyrh();
     }
-    public long countCandidature1() {
-        return Candidature_StepsRepository.countCandidature1();
+    public long countCandidaturebyTechnique() {
+        return Candidature_StepsRepository.countCandidaturebyTechnique();
+    }
+    public long countCandidaturebyorale() {
+        return Candidature_StepsRepository.countCandidaturebyorale();
+    }
+    public long countCandidaturebyautre() {
+        return Candidature_StepsRepository.countCandidaturebyautre();
     }
 
     public List<Candidature_Steps> findAllCandidatures_Steps() {
         return Candidature_StepsRepository.findAll();
+    }
+    public List<Candidature_Steps> findAllByRh() {
+        return Candidature_StepsRepository.findAllByRh();
     }
 
     public static Candidature_Steps putCandidature_Steps(Candidature_Steps Candidature_Steps, Long id) {

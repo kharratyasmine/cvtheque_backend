@@ -21,6 +21,9 @@ public class PostService {
     public Post findPostByDetails(Long idCandidature, Long idCandidate) {
         return PostRepository.findPostByCandidatureId(idCandidature, idCandidate);
     }
+    public  List<Object>  findcandidaturebypost() {
+        return PostRepository.findcandidaturebypost() ;
+    }
 
     public Post putPost(Post Post, Long id) {
         Post.setId_post(id);

@@ -22,13 +22,25 @@ public class Candidature_StepsController {
     public List<Candidature_Steps> findAllCandidatures_Steps() {
         return candidature_StepsService.findAllCandidatures_Steps();
     }
-    @GetMapping("/nbrcandidature")
-    public long countCandidature() {
-        return candidature_StepsService.countCandidature();
+    @GetMapping("/listcandidaturebyrh")
+    public List<Candidature_Steps> findAllByRh() {
+        return candidature_StepsService.findAllByRh();
     }
-    @GetMapping("/nbrcandidature1")
-    public long countCandidature1() {
-        return candidature_StepsService.countCandidature1();
+    @GetMapping("/nbrcandidaturebyrh")
+    public long countCandidaturebyrh() {
+        return candidature_StepsService.countCandidaturebyrh();
+    }
+    @GetMapping("/nbrcandidaturebyTechnique")
+    public long countCandidaturebyTechnique() {
+        return candidature_StepsService.countCandidaturebyTechnique();
+    }
+    @GetMapping("/nbrcandidaturebyorale")
+    public long countCandidaturebyorale() {
+        return candidature_StepsService.countCandidaturebyorale();
+    }
+    @GetMapping("/nbrcandidaturebyautre")
+    public long countCandidaturebyautre() {
+        return candidature_StepsService.countCandidaturebyautre();
     }
 
     @GetMapping("query/{idCandidature}/{idCandidate}")

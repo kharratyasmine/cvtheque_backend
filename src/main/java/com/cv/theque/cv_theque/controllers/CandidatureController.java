@@ -28,6 +28,10 @@ public class CandidatureController {
         candidatureList.forEach(candidature -> candidature.getCandidate().setCv(""));
         return candidatureList;
     }
+    @GetMapping("/nbrcandidature")
+    public long countCandidature() {
+        return candidatureService.countCandidature();
+    }
 
     @PostMapping()
     public Candidature addCandidature(@RequestBody Candidature candidature) {

@@ -9,7 +9,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@JsonIdentityInfo(generator= ObjectIdGenerators.IntSequenceGenerator.class, property="candidate_id")
+@JsonIdentityInfo(generator= ObjectIdGenerators.IntSequenceGenerator.class, property="candidate_id", scope = Candidature.class)
 public class Candidature extends Auditable<String>  {
     @Id()
     @GeneratedValue(strategy = GenerationType.AUTO)

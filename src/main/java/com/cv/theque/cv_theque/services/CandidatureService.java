@@ -24,6 +24,9 @@ public class CandidatureService {
     public List<Candidature> findCandidatureByCandidate(Long candidate) {
         return candidatureRepository.findCandidature(candidate);
     }
+    public long countCandidature() {
+        return candidatureRepository.countCandidature() ;
+    }
 
     public Candidature putCandidature(Candidature candidature, Long id) {
         candidature.setId(id);

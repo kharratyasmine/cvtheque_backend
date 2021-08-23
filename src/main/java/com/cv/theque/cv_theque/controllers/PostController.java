@@ -24,6 +24,10 @@ public class PostController {
     public Post findPost(@PathVariable Long idCandidature, @PathVariable Long idCandidate) {
         return PostService.findPostByDetails(idCandidature, idCandidate);
     }
+    @GetMapping("/nbrcandidaturebypost")
+    public  List<Object> countCandidature() {
+        return PostService.findcandidaturebypost();
+    }
     @PostMapping()
     public Post addPost(@RequestBody Post Post) {
         return PostService.addPost(Post);
