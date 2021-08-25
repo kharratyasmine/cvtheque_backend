@@ -29,10 +29,8 @@ public class Candidate_CompetenceService {
         return candidate_CompetenceRepository.save(candidate_Competence);
     }
 
-    public Candidate_Competence deleteCandidate_Competence(Long id) {
-        Candidate_Competence candidate_competence = findCandidate_CompetenceById(id);
-        candidate_competence.setDeleted(true);
-        return putCandidate_Competence(candidate_competence, id);
+    public void deleteCandidate_Competence(Long id) {
+        candidate_CompetenceRepository.deleteById(id);
     }
     public Candidate_Competence addCandidate_Competence(Candidate_Competence candidateCompetence) {
         return candidate_CompetenceRepository.save(candidateCompetence);

@@ -18,7 +18,7 @@ public interface Candidature_StepsRepository extends JpaRepository<Candidature_S
     @Query(value = "SELECT count(*) FROM candidature_steps WHERE sequence = 'Entretien RH' and deleted = false",
             nativeQuery = true)
     long countCandidaturebyrh();
-    @Query(value = "SELECT * FROM candidature_steps WHERE sequence = 'Entretien RH' and deleted = false",
+    @Query(value = "SELECT *, (SELECT count(*)FROM candidature_steps WHERE sequence = 'Entretien RH' and deleted = false",
             nativeQuery = true)
     List<Candidature_Steps> findAllByRh();
     @Query(value = "SELECT count(*) FROM candidature_steps WHERE sequence = 'Entretien Technique' and deleted = false",

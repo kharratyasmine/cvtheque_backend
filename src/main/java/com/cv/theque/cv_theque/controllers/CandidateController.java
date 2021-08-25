@@ -3,6 +3,7 @@ package com.cv.theque.cv_theque.controllers;
 
 import com.cv.theque.cv_theque.models.CV;
 import com.cv.theque.cv_theque.models.Candidate;
+import com.cv.theque.cv_theque.models.Candidature_Steps;
 import com.cv.theque.cv_theque.services.CandidateService;
 import org.springframework.web.bind.annotation.*;
 
@@ -30,11 +31,6 @@ public class CandidateController {
       CV currentCv = new CV();
       currentCv.setCv(candidateService.findCvByCandidateId(id));
        return currentCv;
-    }
-
-  @GetMapping("/nbrcandidate")
-  public long countCandidate() {
-       return candidateService.countCandidate();
     }
   @PostMapping()
   public Candidate addCandidate(@RequestBody Candidate candidate) {

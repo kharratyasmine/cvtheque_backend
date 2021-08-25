@@ -1,6 +1,7 @@
 package com.cv.theque.cv_theque.repositories;
 
 import com.cv.theque.cv_theque.models.Candidate;
+import com.cv.theque.cv_theque.models.Candidature_Steps;
 import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -18,7 +19,5 @@ public interface CandidateRepository extends JpaRepository<Candidate, Long> {
             nativeQuery = true)
     String findCvByCandidateId(Long id_candidate);
 
-    @Query(value = "SELECT count(*) FROM  candidate c WHERE c.deleted = false",
-            nativeQuery = true)
-    long countCandidate();
+
 }

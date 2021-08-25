@@ -39,8 +39,8 @@ public class Candidate_CompetenceController {
     }
 
     @DeleteMapping("{id}")
-    public Candidate_Competence putCompetence(@PathVariable long id) {
-        return Candidate_CompetenceService.deleteCandidate_Competence(id);
+    public void putCompetence(@PathVariable long id) {
+        Candidate_CompetenceService.deleteCandidate_Competence(id);
     }
 
     @GetMapping("{id}")

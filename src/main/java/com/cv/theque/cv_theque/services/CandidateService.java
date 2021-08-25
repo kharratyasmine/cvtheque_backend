@@ -1,6 +1,7 @@
 package com.cv.theque.cv_theque.services;
 
 import com.cv.theque.cv_theque.models.Candidate;
+import com.cv.theque.cv_theque.models.Candidature_Steps;
 import com.cv.theque.cv_theque.repositories.CandidateRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,9 +24,6 @@ public class CandidateService {
     public String findCvByCandidateId(long id) {
         return candidateRepository.findCvByCandidateId(id) ;
     }
-    public long countCandidate() {
-        return candidateRepository.countCandidate() ;
-    }
 
     public Candidate putCandidate(Candidate candidate, Long id) {
         candidate.setCandidate_id(id);
@@ -45,4 +43,5 @@ public class CandidateService {
     public Candidate findCandidateById(Long id) {
         return candidateRepository.findById(id).get();
     }
+    
 }

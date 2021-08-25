@@ -3,6 +3,8 @@ package com.cv.theque.cv_theque.controllers;
 import com.cv.theque.cv_theque.models.Candidature_Steps;;
 import com.cv.theque.cv_theque.services.Candidature_StepsService;
 import org.springframework.http.MediaType;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
@@ -13,9 +15,10 @@ import java.util.List;
 @CrossOrigin("*")
 public class Candidature_StepsController {
     private final Candidature_StepsService candidature_StepsService;
-
-    public Candidature_StepsController(Candidature_StepsService candidature_StepsService) {
+    private final JavaMailSender emailSender;
+    public Candidature_StepsController(Candidature_StepsService candidature_StepsService, JavaMailSender emailSender) {
         this.candidature_StepsService = candidature_StepsService;
+        this.emailSender = emailSender;
     }
 
     @GetMapping()
@@ -49,6 +52,15 @@ public class Candidature_StepsController {
     }
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     public Candidature_Steps addCandidature_Steps(@RequestBody Candidature_Steps Candidature_Steps) {
+        // Create a Simple MailMessage.
+//        SimpleMailMessage message = new SimpleMailMessage();
+//
+//        message.setTo("bouchaala.omayma@gmail.com");
+//        message.setSubject("test");
+//        message.setText("testing send ");
+//
+//        // Send Message!
+//        this.emailSender.send(message);
         return candidature_StepsService.addCandidature_Steps(Candidature_Steps);
     }
     @PutMapping("{id}")

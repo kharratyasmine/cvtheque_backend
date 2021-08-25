@@ -25,10 +25,8 @@ public class Candidate_AdvantageService {
         return Candidate_AdvantageRepository.save(Candidate_Advantage);
     }
 
-    public Candidate_Advantage deleteCandidate_Advantage(Long id) {
-        Candidate_Advantage Candidate_Advantage = findCandidate_AdvantageById(id);
-        Candidate_Advantage.setDeleted(true);
-        return putCandidate_Advantage(Candidate_Advantage, id);
+    public void deleteCandidate_Advantage(Long id) {
+        Candidate_AdvantageRepository.deleteById(id);
     }
     public List<Candidate_Advantage> findAdvantageByCandidatureId(Long idCandidature, Long idCandidate) {
         return Candidate_AdvantageRepository.findAdvantageByCandidatureId(idCandidature, idCandidate);
