@@ -21,11 +21,17 @@ public class CandidatureService {
     public List<Candidature> findAllCandidatures() {
         return candidatureRepository.findAllByDeletedIsFalse();
     }
+
     public List<Candidature> findCandidatureByCandidate(Long candidate) {
         return candidatureRepository.findCandidature(candidate);
     }
+
     public long countCandidature() {
         return candidatureRepository.countCandidature() ;
+    }
+
+    public  List<Candidature>  countCandidatureByPostName(Long postName) {
+        return candidatureRepository.countCandidatureByPost(postName) ;
     }
 
     public Candidature putCandidature(Candidature candidature, Long id) {

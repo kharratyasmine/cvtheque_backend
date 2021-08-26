@@ -32,6 +32,10 @@ public class CandidatureController {
     public long countCandidature() {
         return candidatureService.countCandidature();
     }
+    @GetMapping("candidature/{postName}")
+    public List<Candidature> countCandidatureByPostName(@PathVariable Long postName) {
+        return candidatureService.countCandidatureByPostName(postName);
+    }
 
     @PostMapping()
     public Candidature addCandidature(@RequestBody Candidature candidature) {

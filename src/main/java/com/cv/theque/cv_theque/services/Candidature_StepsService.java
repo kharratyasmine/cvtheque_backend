@@ -1,10 +1,7 @@
 package com.cv.theque.cv_theque.services;
-
-import com.cv.theque.cv_theque.models.Announcement;
 import com.cv.theque.cv_theque.models.Candidature_Steps;
 import com.cv.theque.cv_theque.repositories.Candidature_StepsRepository;
 import org.springframework.stereotype.Service;
-
 import java.util.Collection;
 import java.util.List;
 
@@ -15,22 +12,27 @@ public class Candidature_StepsService {
     public Candidature_StepsService(Candidature_StepsRepository Candidature_StepsRepository) {
         this.Candidature_StepsRepository = Candidature_StepsRepository;
     }
-    public long countCandidaturebyrh() {
+
+    public  List<Candidature_Steps> countCandidaturebyrh() {
         return Candidature_StepsRepository.countCandidaturebyrh();
     }
-    public long countCandidaturebyTechnique() {
+
+    public List<Candidature_Steps> countCandidaturebyTechnique() {
         return Candidature_StepsRepository.countCandidaturebyTechnique();
     }
-    public long countCandidaturebyorale() {
+
+    public  List<Candidature_Steps> countCandidaturebyorale() {
         return Candidature_StepsRepository.countCandidaturebyorale();
     }
-    public long countCandidaturebyautre() {
+
+    public  List<Candidature_Steps>  countCandidaturebyautre() {
         return Candidature_StepsRepository.countCandidaturebyautre();
     }
 
     public List<Candidature_Steps> findAllCandidatures_Steps() {
         return Candidature_StepsRepository.findAll();
     }
+
     public List<Candidature_Steps> findAllByRh() {
         return Candidature_StepsRepository.findAllByRh();
     }
@@ -39,6 +41,7 @@ public class Candidature_StepsService {
         Candidature_Steps.setId_candidature_steps(id);
         return Candidature_StepsRepository.save(Candidature_Steps);
     }
+
     public Candidature_Steps deleteCandidature_Steps(Long id) {
         Candidature_Steps candidature_steps = findCandidature_StepsById(id);
         candidature_steps.setDeleted(true);
