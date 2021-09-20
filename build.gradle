@@ -24,6 +24,9 @@ dependencies {
     implementation 'org.springframework.security:spring-security-test'
     implementation 'org.springframework:spring-context-support:5.2.8.RELEASE'
     implementation 'org.springframework.boot:spring-boot-starter-mail:2.3.4.RELEASE'
+    implementation 'org.thymeleaf:thymeleaf-spring4:2.1.5.RELEASE'
+    implementation 'org.thymeleaf:thymeleaf:2.1.5.RELEASE'
+    implementation 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect:2.1.2'
 }
 
 test {

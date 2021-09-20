@@ -2,6 +2,7 @@ package com.cv.theque.cv_theque.controllers;
 
 import com.cv.theque.cv_theque.models.Advantage;
 import com.cv.theque.cv_theque.services.AdvantageService;
+import org.springframework.context.annotation.Role;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

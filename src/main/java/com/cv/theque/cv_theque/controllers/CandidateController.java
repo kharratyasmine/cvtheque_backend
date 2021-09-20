@@ -3,10 +3,14 @@ package com.cv.theque.cv_theque.controllers;
 
 import com.cv.theque.cv_theque.models.CV;
 import com.cv.theque.cv_theque.models.Candidate;
-import com.cv.theque.cv_theque.models.Candidature_Steps;
 import com.cv.theque.cv_theque.services.CandidateService;
+import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.*;
 
+import javax.mail.MessagingException;
+import javax.swing.text.DateFormatter;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.List;
 
 @RestController()
@@ -47,5 +51,9 @@ public class CandidateController {
   @GetMapping("{id}")
   public Candidate findCandidateById(@PathVariable Long id) {
       return candidateService.findCandidateById(id);
+    }
+  @PostMapping("email/{sequence}/{post}")
+    public void sendMail(@RequestBody Candidate candidate, @PathVariable String sequence, @PathVariable String post, @Param("date") String date, @Param("heure") String heure, @Param("type") String type) throws MessagingException {
+        candidateService.sendmail(candidate, sequence, post, date, heure, type);
     }
 }

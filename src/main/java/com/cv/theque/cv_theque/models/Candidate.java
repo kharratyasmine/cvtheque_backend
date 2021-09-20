@@ -13,7 +13,7 @@ public class Candidate extends Auditable<String>  {
     private long candidate_id;
     @OneToMany(mappedBy = "candidate")
     private List<Candidature> candidatures;
-
+    @JsonIgnore
     @OneToMany(mappedBy = "candidate")
     private List<Candidate_Advantage> Candidate_Advantage;
     @JsonIgnore
