@@ -76,7 +76,7 @@ public class CandidateService {
         String html = templateEngine.process(type, context);
 
         try {
-            helper.setTo("amina.baraket6@gmail.com");
+            helper.setTo(candidate.getMail());
             helper.setText(html, true);
             helper.setSubject(sequence);
         } catch (MessagingException e) {
